@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 
 @Component({
   selector: 'app-converter',
@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http'
 })
 export class ConverterComponent implements OnInit {
   response:any
- 
+
 
 
   // async getCurrencies() {
@@ -22,17 +22,20 @@ export class ConverterComponent implements OnInit {
 
   }
   search() {
-    this.http.get('https://currate.ru/api/?get=rates&pairs=USDRUB,EURRUB&key=94ee1ecac71d9753fee7b971b357bab2')
+
+    const url = 'https://currate.ru/api/?get=rates&pairs=USDRUB,EURRUB&key=94ee1ecac71d9753fee7b971b357bab2';
+    const serverUrl = 'http://localhost:4000/getRates'
+
+    this.http.get(serverUrl)
     .subscribe((response) => {
       this.response = response;
       console.log(response);
-      
     })
-  
+
   }
 
 
- 
+
   ngOnInit(): void {
   }
 }

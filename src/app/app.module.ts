@@ -13,7 +13,7 @@ import { InputCurrencyComponent } from './input-currency/input-currency.componen
     InputCurrencyComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule
   ],
   providers: [],
