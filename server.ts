@@ -35,18 +35,21 @@ export function app(): express.Express {
 
   // All regular routes use the Universal engine
   server.get('/', (req, res) => {
-    console.log("server works");
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
   server.get('/getRates', async (req, res) => {
-    console.log("getRates");
-
-    const response = await axios.get('https://currate.ru/api/?get=rates&pairs=USDRUB,EURRUB&key=94ee1ecac71d9753fee7b971b357bab2');
-    console.log(response);
-    res.status(200).json({
-      data: JSON.parse(JSON.stringify(response.data))
-    });
+    const url = 'https://currate.ru/api/?get=rates&pairs=USDRUB,EURRUB&key=94ee1ecac71d9753fee7b971b357bab2';
+    try {
+      const response = await axios.get(url);
+      res.status(200).json({
+        data: JSON.parse(JSON.stringify(response.data))
+      });
+    }
+    catch (error) {
+      console.log(error);
+      res.status(500);
+    }
   });
 
   return server;
