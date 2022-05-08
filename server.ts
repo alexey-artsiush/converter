@@ -39,7 +39,8 @@ export function app(): express.Express {
   });
 
   server.get('/getRates', async (req, res) => {
-    const url = 'https://currate.ru/api/?get=rates&pairs=USDRUB,EURRUB&key=94ee1ecac71d9753fee7b971b357bab2';
+    const url = 'https://currate.ru/api/?get=rates&pairs=USDUAH,USDEUR&key=94ee1ecac71d9753fee7b971b357bab2';
+    
     try {
       const response = await axios.get(url);
       res.status(200).json({

@@ -1,9 +1,17 @@
 <div class="converter-app">
-    <app-input-currency></app-input-currency>
-    <app-input-currency></app-input-currency>
-    <app-input-currency></app-input-currency>
-    <button (click)="search()">turn me</button>
-    
+    <span>Актуальный курс валют:</span> <br>
+    <span>Доллар: {{response ? response.data.data.USDUAH : "курс недоступен "}}</span>
+    <span>Евро:  {{response ? response.data.data.USDUAH/response.data.data.USDEUR : "курс недоступен "}}</span>
+
+    <div>
+        <app-input-currency
+        *ngFor="let iterCurrencies of currencies; let idx = index"
+        [currency]="iterCurrencies"
+        [index]="idx + 1"
+        ></app-input-currency>
+      </div>
+    <button (click)="getCurrencies()">Конвертировать</button>
+  
 </div>
 
 

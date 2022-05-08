@@ -2,7 +2,30 @@
     width: 400px;
     margin: 10vh auto;
     padding: 2rem;
-    background: linear-gradient(to right, rgb(111, 111, 250), rgb(195, 166, 224));
+    background: linear-gradient(to right, rgb(192, 229, 250), rgb(227, 201, 253));
     border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: rgb(27, 69, 116);
+}
+
+button {
+    display: flex;
+    margin: 0 auto;
+    background: linear-gradient(to right, rgb(192, 229, 250), rgb(227, 201, 253));
+    border-radius: 9px;
+    padding: 5px;
+    cursor: pointer;
+    border: 3px solid hsl(229, 47%, 67%);
+}
+    
+button:hover {
+    background: linear-gradient(to right, rgb(182, 217, 237), rgb(204, 182, 228));
+    border: 3px solid hsl(241, 35%, 63%);
+    }
+
+button:active {
+    border: 1px solid hsl(241, 62%, 80%);
+    box-shadow: 1px 1px 3px rgb(90, 119, 135);
 
 }
